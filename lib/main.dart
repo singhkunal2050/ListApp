@@ -19,25 +19,29 @@ class _ListAppState extends State<ListApp> {
     return Card(
       color: Colors.lime[100],
       margin: EdgeInsets.all(20),
-      child: Column(
-        children: <Widget>[
-          Text(
-            qoute.text,
-            style: TextStyle(
-              fontSize: 40,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              qoute.text,
+              style: TextStyle(
+                fontSize: 40,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Text(
-            qoute.author,
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.grey[700],
+            SizedBox(
+              height: 5,
             ),
-          ),
-        ],
+            Text(
+              qoute.author,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.grey[700],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
