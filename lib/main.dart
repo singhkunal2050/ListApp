@@ -15,6 +15,33 @@ class _ListAppState extends State<ListApp> {
     Quote(text: "Save the best", author: "Komal Singh")
   ];
 
+  Widget getCard(qoute) {
+    return Card(
+      color: Colors.lime[100],
+      margin: EdgeInsets.all(20),
+      child: Column(
+        children: <Widget>[
+          Text(
+            qoute.text,
+            style: TextStyle(
+              fontSize: 40,
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            qoute.author,
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.grey[700],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,12 +53,7 @@ class _ListAppState extends State<ListApp> {
         ),
         body: Column(
           children: qoutes.map((qoute) {
-            return Text(
-              '${qoute.text} ~ ${qoute.author}',
-              style: TextStyle(
-                fontSize: 30,
-              ),
-            );
+            return getCard(qoute);
           }).toList(),
         ),
       ),
@@ -45,3 +67,4 @@ class _ListAppState extends State<ListApp> {
 //     return Text(elem)
 // }).toList()
 // children: qoutes.map((qoute)=> Text(qoute)).toList();
+// card widgets
