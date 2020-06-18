@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './Quote.dart';
+import './QuoteCard.dart';
 
 void main() => runApp(ListApp());
 
@@ -15,10 +16,6 @@ class _ListAppState extends State<ListApp> {
     Quote(text: "Save the best", author: "Komal Singh")
   ];
 
-  Widget getCard(quote) {
-    return QuoteCard(quote:quote);
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,45 +27,8 @@ class _ListAppState extends State<ListApp> {
         ),
         body: Column(
           children: quotes.map((quote) {
-            return getCard(quote);
+            return QuoteCard(quote:quote);
           }).toList(),
-        ),
-      ),
-    );
-  }
-}
-
-class QuoteCard extends StatelessWidget {
-  final Quote quote;
-  const QuoteCard({this.quote});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: Colors.lime[100],
-      margin: EdgeInsets.all(20),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              quote.text,
-              style: TextStyle(
-                fontSize: 40,
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              quote.author,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.grey[700],
-              ),
-            ),
-          ],
         ),
       ),
     );

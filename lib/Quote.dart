@@ -5,5 +5,4 @@ class Quote{
   Quote({this.text , this.author});
   // name par constructor
 
-
 }
