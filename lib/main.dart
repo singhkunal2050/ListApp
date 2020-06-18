@@ -27,7 +27,14 @@ class _ListAppState extends State<ListApp> {
         ),
         body: Column(
           children: quotes.map((quote) {
-            return QuoteCard(quote:quote);
+            return QuoteCard(
+              quote: quote,
+              delete: () {
+                setState(() {
+                  quotes.remove(quote);
+                });
+              },
+            );
           }).toList(),
         ),
       ),

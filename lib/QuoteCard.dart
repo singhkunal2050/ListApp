@@ -3,15 +3,20 @@ import './Quote.dart';
 
 class QuoteCard extends StatelessWidget {
   final Quote quote;
-  const QuoteCard({this.quote});
+  final Function delete;
+
+  const QuoteCard({
+    this.quote,
+    this.delete,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
       color: Colors.lime[100],
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(15),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -30,6 +35,12 @@ class QuoteCard extends StatelessWidget {
                 fontSize: 20,
                 color: Colors.grey[700],
               ),
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.delete,
+              ),
+              onPressed: delete,
             ),
           ],
         ),
