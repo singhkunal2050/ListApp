@@ -9,41 +9,14 @@ class ListApp extends StatefulWidget {
 }
 
 class _ListAppState extends State<ListApp> {
-  List<Quote> qoutes = [
+  List<Quote> quotes = [
     Quote(text: "Im the best", author: "Kunal Singh"),
     Quote(text: "You the best", author: "Karan Singh"),
     Quote(text: "Save the best", author: "Komal Singh")
   ];
 
-  Widget getCard(qoute) {
-    return Card(
-      color: Colors.lime[100],
-      margin: EdgeInsets.all(20),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              qoute.text,
-              style: TextStyle(
-                fontSize: 40,
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              qoute.author,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.grey[700],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+  Widget getCard(quote) {
+    return QuoteCard(quote:quote);
   }
 
   @override
@@ -56,9 +29,46 @@ class _ListAppState extends State<ListApp> {
           backgroundColor: Colors.redAccent,
         ),
         body: Column(
-          children: qoutes.map((qoute) {
-            return getCard(qoute);
+          children: quotes.map((quote) {
+            return getCard(quote);
           }).toList(),
+        ),
+      ),
+    );
+  }
+}
+
+class QuoteCard extends StatelessWidget {
+  final Quote quote;
+  const QuoteCard({this.quote});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.lime[100],
+      margin: EdgeInsets.all(20),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              quote.text,
+              style: TextStyle(
+                fontSize: 40,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              quote.author,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.grey[700],
+              ),
+            ),
+          ],
         ),
       ),
     );
